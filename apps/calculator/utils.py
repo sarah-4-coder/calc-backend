@@ -38,6 +38,9 @@ def analyze_image(img: Image, dict_of_vars: dict):
     dict_of_vars_str = json.dumps(dict_of_vars, ensure_ascii=False)
     
     prompt = (
+        f"If the expression includes variables (like x, y), substitute their values from the user-assigned dictionary before solving. "
+        f"For example, if x=5 and y=10, then 2x+y = 2*5 + 10 = 20. "
+        f"Make sure to interpret expressions like 2x as 2 * x."
         f"You have been given an image with some mathematical expressions, equations, or graphical problems, and you need to solve them. "
         f"Note: Use the PEMDAS rule for solving mathematical expressions. PEMDAS stands for the Priority Order: Parentheses, Exponents, Multiplication and Division (from left to right), Addition and Subtraction (from left to right). "
         f"For example: "
